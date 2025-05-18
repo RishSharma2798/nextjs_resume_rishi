@@ -144,7 +144,7 @@ export default function Navbar() {
               href="/RishiPradeepSharma(R).pdf"
               download="Rishi_Sharma_Resume.pdf"
             >
-              Download Resume123{" "}
+              Download Resume{" "}
             </a>
           </Button>
         </nav>
