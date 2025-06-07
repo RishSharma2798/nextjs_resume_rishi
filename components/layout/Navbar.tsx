@@ -33,19 +33,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Handle theme toggle
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
-  // Toggle mobile menu
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  // Close mobile menu when clicking a link
-  const handleLinkClick = () => {
-    setIsMobileMenuOpen(false);
+    setIsMobileMenuOpen((prev) => !prev);
   };
 
   if (!mounted) return null;
@@ -68,7 +61,7 @@ export default function Navbar() {
             isScrolled ? "scale-90" : "scale-100"
           )}
         >
-          <span className="text-primary">Rishi</span> &nbsp;
+          <span className="text-primary">Rishi</span>&nbsp;
           <span className="text-primary/70">Sharma</span>
         </Link>
 
@@ -96,14 +89,17 @@ export default function Navbar() {
             )}
           </Button>
           <Button asChild className="ml-4" size="sm">
-            <a href="/RishiPradeepSharma(R).pdf" download="Rishi_Sharma_Resume.pdf">
+            <a
+              href="/RishiPradeepSharma(R).pdf"
+              download="Rishi_Sharma_Resume.pdf"
+            >
               Resume
             </a>
           </Button>
         </nav>
 
-        {/* Mobile Navigation Toggle */}
-        <div className="flex items-center md:hidden space-x-2">
+        {/* Mobile Icons */}
+        <div className="md:hidden flex items-center space-x-2">
           <Button variant="outline" size="icon" onClick={toggleTheme}>
             {theme === "dark" ? (
               <SunIcon className="h-4 w-4" />
@@ -121,30 +117,30 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Drop Down Menu */}
       <div
         className={cn(
-          "fixed inset-0 bg-background/95 backdrop-blur-sm z-40 md:hidden transition-all duration-300 flex flex-col pt-20",
-          isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          "md:hidden overflow-hidden transition-all duration-300 bg-background shadow-md",
+          isMobileMenuOpen ? "max-h-[500px] py-4" : "max-h-0 py-0"
         )}
       >
-        <nav className="flex flex-col items-center space-y-6 pt-6">
+        <nav className="flex flex-col items-center space-y-4 px-4">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-lg font-medium hover:text-primary transition-colors"
-              onClick={handleLinkClick}
+              className="text-base font-medium hover:text-primary transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.name}
             </Link>
           ))}
-          <Button asChild className="mt-4">
+          <Button asChild className="mt-2">
             <a
               href="/RishiPradeepSharma(R).pdf"
               download="Rishi_Sharma_Resume.pdf"
             >
-              Download Resume{" "}
+              Download Resume
             </a>
           </Button>
         </nav>

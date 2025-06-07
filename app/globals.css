@@ -119,3 +119,19 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background-color: hsl(var(--primary) / 0.3);
 }
+
+@layer utilities {
+  .animate-slideIn {
+    @apply transition-transform duration-300 transform translate-y-0;
+    animation: slideDown 0.3s ease-out forwards;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0%);
+    }
+  }
+}
