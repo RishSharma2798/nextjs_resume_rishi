@@ -90,7 +90,7 @@ export default function Navbar() {
           </Button>
           <Button asChild className="ml-4" size="sm">
             <a
-              href="/RishiPradeepSharma(R).pdf"
+              href="/RishiPSharma(R).pdf"
               download="Rishi_Sharma_Resume.pdf"
             >
               Resume
@@ -137,7 +137,7 @@ export default function Navbar() {
           ))}
           <Button asChild className="mt-2">
             <a
-              href="/RishiPradeepSharma(R).pdf"
+              href="/RishiPSharma(R).pdf"
               download="Rishi_Sharma_Resume.pdf"
             >
               Download Resume

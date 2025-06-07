@@ -73,7 +73,7 @@ export default function HeroSection() {
               </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="group">
-              <a href="/RishiPradeepSharma(R).pdf" download="Rishi_Sharma_Resume.pdf">
+              <a href="/RishiPSharma(R).pdf" download="Rishi_Sharma_Resume.pdf">
                 Download Resume{" "}
                 <Download className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-1" />
               </a>
